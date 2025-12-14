@@ -64,7 +64,7 @@ const Certifications = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div className="text-4xl text-blue-600">
-                      <SiMicrosof />
+                      <SiMicrosoft />
                     </div>
                     <div className="text-2xl text-gray-700 dark:text-gray-300">×</div>
                     <div className="text-4xl text-blue-500">
