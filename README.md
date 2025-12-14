@@ -10,7 +10,7 @@ Portfolio web profesional de Jordy Villanueva, Full Stack Developer especializad
 
 ## 🚀 Demo en Vivo
 
-🌐 **[Ver Portfolio](https://tu-portafolio.vercel.app)** (Se actualizará después del deploy)
+🌐 **[Ver Portfolio](https://portfolio-web-six-qqlas.vercel.app)** - ¡Portfolio en producción!
 
 ## ✨ Características
 
