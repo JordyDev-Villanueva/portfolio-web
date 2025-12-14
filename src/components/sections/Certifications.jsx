@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaCheckCircle, FaCertificate } from 'react-icons/fa';
-import { SiMicrosoft, SiCoursera } from 'react-icons/si';
+import { FaExternalLinkAlt, FaCheckCircle, FaCertificate, FaMicrosoft } from 'react-icons/fa';
+import { SiCoursera } from 'react-icons/si';
 import { certifications } from '../../data/certifications';
 
 const Certifications = () => {
@@ -64,7 +64,7 @@ const Certifications = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div className="text-4xl text-blue-600">
-                      <SiMicrosoft />
+                      <FaMicrosoft />
                     </div>
                     <div className="text-2xl text-gray-700 dark:text-gray-300">×</div>
                     <div className="text-4xl text-blue-500">
