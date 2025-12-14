@@ -6,7 +6,7 @@ export const certifications = [
     issuer: 'Microsoft',
     platform: 'Coursera',
     date: 'Octubre 2025',
-    image: '/certificates/microsoft-python-cert.png',
+    image: '/certificates/microsoft-python-cert.jpg',
     verifyUrl: 'https://www.coursera.org/account/accomplishments/professional-cert/S02FY68XH927',
     featured: true,
     courses: [
