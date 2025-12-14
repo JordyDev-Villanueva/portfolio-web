@@ -78,8 +78,11 @@ const About = () => {
               <div className="space-y-3">
                 {[
                   'Desarrollo backend con Python (Flask, FastAPI, Django)',
+                  'Análisis de datos con Python (Pandas, NumPy, Matplotlib)',
                   'Frontend moderno con React + TypeScript',
+                  'Visualización de datos y dashboards estadísticos',
                   'Bases de datos relacionales (PostgreSQL) y NoSQL (MongoDB)',
+                  'Limpieza, transformación y modelado de datos',
                   'Despliegue en la nube (Railway, Vercel, Supabase)',
                   'Integración de APIs REST y sistemas de autenticación'
                 ].map((item, index) => (

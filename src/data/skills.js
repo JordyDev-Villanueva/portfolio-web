@@ -15,6 +15,14 @@ export const skills = [
   { name: 'Django', category: 'Backend', icon: '🎯', color: '#092E20' },
   { name: 'Node.js', category: 'Backend', icon: '💚', color: '#339933' },
 
+  // Data Analysis
+  { name: 'Pandas', category: 'Data Analysis', icon: '🐼', color: '#150458' },
+  { name: 'NumPy', category: 'Data Analysis', icon: '🔢', color: '#013243' },
+  { name: 'Matplotlib', category: 'Data Analysis', icon: '📊', color: '#11557c' },
+  { name: 'Seaborn', category: 'Data Analysis', icon: '📈', color: '#444876' },
+  { name: 'Jupyter', category: 'Data Analysis', icon: '📓', color: '#F37626' },
+  { name: 'Excel', category: 'Data Analysis', icon: '📑', color: '#217346' },
+
   // Database
   { name: 'PostgreSQL', category: 'Database', icon: '🐘', color: '#4169E1' },
   { name: 'MongoDB', category: 'Database', icon: '🍃', color: '#47A248' },
@@ -29,4 +37,4 @@ export const skills = [
   { name: 'Postman', category: 'Tools', icon: '📮', color: '#FF6C37' },
 ];
 
-export const skillCategories = ['All', 'Frontend', 'Backend', 'Database', 'Tools'];
+export const skillCategories = ['All', 'Frontend', 'Backend', 'Data Analysis', 'Database', 'Tools'];

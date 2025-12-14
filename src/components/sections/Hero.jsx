@@ -36,7 +36,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-2xl md:text-3xl lg:text-4xl text-gray-600 dark:text-gray-400 mb-6"
             >
-              Full Stack Developer | Python Specialist
+              Full Stack Developer & Data Analyst
             </motion.h3>
 
             <motion.p
@@ -45,9 +45,9 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl"
             >
-              Construyo soluciones web completas que resuelven problemas reales.
-              Especializado en Python backend (Flask, FastAPI) y React frontend.
-              Actualmente estudiando Ingeniería de Sistemas (10º ciclo) en la UTP.
+              Construyo soluciones web completas y analizo datos para resolver problemas reales.
+              Especializado en Python (Flask, FastAPI, Pandas, NumPy) y React frontend.
+              Microsoft Certified Python Developer. Actualmente estudiando Ing. Sistemas (10º ciclo) - UTP.
             </motion.p>
 
             <motion.div
