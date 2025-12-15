@@ -16,6 +16,7 @@ Portfolio web profesional de Jordy Villanueva, Full Stack Developer especializad
 
 - **Diseño Moderno y Responsivo**: Interfaz profesional que se adapta a todos los dispositivos
 - **Animaciones Suaves**: Implementadas con Framer Motion para una experiencia de usuario fluida
+- **Formulario de Contacto Funcional**: Integración con EmailJS para envío directo de emails
 - **Dark Mode Ready**: Estilos preparados para modo oscuro (próximamente)
 - **SEO Optimizado**: Meta tags completos para redes sociales y motores de búsqueda
 - **Performance Optimizado**: Build optimizado con Vite para carga rápida
@@ -26,7 +27,7 @@ Portfolio web profesional de Jordy Villanueva, Full Stack Developer especializad
 2. **Sobre Mí**: Biografía profesional con foto y métricas clave
 3. **Proyectos**: Showcase de proyectos destacados (KATITA-POS featured)
 4. **Habilidades**: Grid de tecnologías con filtros por categoría
-5. **Contacto**: Formulario de contacto e información de redes sociales
+5. **Contacto**: Formulario funcional con EmailJS + información de redes sociales
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -36,6 +37,7 @@ Portfolio web profesional de Jordy Villanueva, Full Stack Developer especializad
 - **Tailwind CSS 3.4.17** - Framework CSS utility-first
 - **Framer Motion** - Librería de animaciones
 - **React Icons** - Iconos (FaGithub, FaLinkedin, etc.)
+- **EmailJS** - Servicio de envío de emails para formulario de contacto
 
 ### Build & Development
 - **PostCSS** - Procesamiento de CSS
@@ -59,11 +61,32 @@ cd portfolio-web
 # Instalar dependencias
 npm install
 
+# Configurar variables de entorno (ver sección EmailJS)
+cp .env.example .env
+# Edita .env con tus credenciales de EmailJS
+
 # Iniciar servidor de desarrollo
 npm run dev
 ```
 
 El portfolio estará disponible en `http://localhost:5173`
+
+### Configuración de EmailJS
+
+El formulario de contacto requiere credenciales de EmailJS:
+
+1. Crea una cuenta en [EmailJS](https://www.emailjs.com/)
+2. Configura un servicio de email (Gmail, Outlook, etc.)
+3. Crea un template de email con las variables: `{{from_name}}`, `{{from_email}}`, `{{subject}}`, `{{message}}`
+4. Crea un archivo `.env` en la raíz del proyecto:
+
+```env
+VITE_EMAILJS_SERVICE_ID=tu_service_id
+VITE_EMAILJS_TEMPLATE_ID=tu_template_id
+VITE_EMAILJS_PUBLIC_KEY=tu_public_key
+```
+
+5. Reinicia el servidor de desarrollo para cargar las variables
 
 ### Scripts Disponibles
 
@@ -139,8 +162,17 @@ Este proyecto está optimizado para deployment en **Vercel**:
 2. Vercel detectará automáticamente la configuración de Vite
 3. El deploy se ejecutará automáticamente
 
-### Variables de Entorno
-No se requieren variables de entorno para este proyecto.
+### Variables de Entorno en Vercel
+
+Para que el formulario de contacto funcione en producción, configura las siguientes variables de entorno en Vercel:
+
+1. Ve a tu proyecto en Vercel Dashboard
+2. Settings → Environment Variables
+3. Agrega las siguientes variables:
+   - `VITE_EMAILJS_SERVICE_ID`
+   - `VITE_EMAILJS_TEMPLATE_ID`
+   - `VITE_EMAILJS_PUBLIC_KEY`
+4. Redeploy el proyecto para aplicar los cambios
 
 ## 📄 Licencia
 
