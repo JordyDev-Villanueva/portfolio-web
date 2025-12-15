@@ -28,7 +28,7 @@ export const certifications = [
     platform: 'Udemy',
     date: 'Diciembre 2025',
     image: '/certificates/udemy-excel-cert.jpg',
-    verifyUrl: 'https://ude.my/UC-bb541ce4-b0b9-483f-abb5-06cbcd91fb2b',
+    verifyUrl: 'https://www.udemy.com/certificate/UC-bb541ce4-b0b9-483f-abb5-06cbcd911b2b/',
     featured: true,
     courses: [
       'Fundamentos de Excel y navegación',
