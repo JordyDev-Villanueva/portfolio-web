@@ -15,11 +15,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4">
               Jordy<span className="text-primary">Dev</span>
             </h3>
-            <p className="text-gray-400">
-              Full Stack Developer especializado en Python y React. Construyendo soluciones que impactan.
+            <p className="text-sm sm:text-base text-gray-400">
+              Full Stack Developer & Data Analyst especializado en Python y React. Construyendo soluciones que impactan.
             </p>
           </div>
 
@@ -27,13 +27,20 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
             <ul className="space-y-2">
-              {['Inicio', 'Sobre Mí', 'Proyectos', 'Habilidades', 'Contacto'].map((link) => (
-                <li key={link}>
+              {[
+                { label: 'Inicio', href: '#home' },
+                { label: 'Sobre Mí', href: '#about' },
+                { label: 'Proyectos', href: '#projects' },
+                { label: 'Habilidades', href: '#skills' },
+                { label: 'Certificaciones', href: '#certifications' },
+                { label: 'Contacto', href: '#contact' }
+              ].map((link) => (
+                <li key={link.label}>
                   <a
-                    href={`#${link.toLowerCase().replace(' ', '-')}`}
+                    href={link.href}
                     className="text-gray-400 hover:text-primary transition-colors"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
