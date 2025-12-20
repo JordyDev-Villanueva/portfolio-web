@@ -68,7 +68,9 @@ const Projects = () => {
               )}
 
               {/* Project Image */}
-              <div className="relative h-80 overflow-hidden">
+              <div className={`relative overflow-hidden ${
+                activeCategory === 'Todos' ? 'h-80' : 'h-72'
+              }`}>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-10"></div>
                 <img
                   src={project.image}
