@@ -13,6 +13,8 @@ export const skills = [
   { name: 'Flask', category: 'Backend', icon: '🔥', color: '#000000' },
   { name: 'FastAPI', category: 'Backend', icon: '⚡', color: '#009688' },
   { name: 'Django', category: 'Backend', icon: '🎯', color: '#092E20' },
+  { name: 'SQLAlchemy', category: 'Backend', icon: '🗄️', color: '#D71F00' },
+  { name: 'Pydantic', category: 'Backend', icon: '✅', color: '#E92063' },
   { name: 'Node.js', category: 'Backend', icon: '💚', color: '#339933' },
 
   // Data Analysis
@@ -32,6 +34,8 @@ export const skills = [
   // DevOps & Tools
   { name: 'Git', category: 'Tools', icon: '🔀', color: '#F05032' },
   { name: 'Docker', category: 'Tools', icon: '🐳', color: '#2496ED' },
+  { name: 'Railway', category: 'Tools', icon: '🚂', color: '#0B0D0E' },
+  { name: 'Vercel', category: 'Tools', icon: '▲', color: '#000000' },
   { name: 'Linux', category: 'Tools', icon: '🐧', color: '#FCC624' },
   { name: 'VS Code', category: 'Tools', icon: '💻', color: '#007ACC' },
   { name: 'Postman', category: 'Tools', icon: '📮', color: '#FF6C37' },
