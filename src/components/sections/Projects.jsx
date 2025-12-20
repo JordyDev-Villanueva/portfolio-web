@@ -46,7 +46,13 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className={`grid gap-8 ${filteredProjects.length === 1 ? 'grid-cols-1 max-w-4xl mx-auto' : 'md:grid-cols-2 lg:grid-cols-3'}`}>
+        <div className={`grid gap-8 ${
+          filteredProjects.length === 1
+            ? 'grid-cols-1 max-w-4xl mx-auto'
+            : filteredProjects.length === 2
+              ? 'md:grid-cols-2 max-w-6xl mx-auto'
+              : 'md:grid-cols-2 lg:grid-cols-3'
+        }`}>
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}

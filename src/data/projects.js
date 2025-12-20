@@ -28,7 +28,7 @@ export const projects = [
     featured: true,
     description: 'API REST para procesamiento asíncrono de pagos masivos a restaurantes. Arquitectura por capas con procesamiento asíncrono que permite procesar 500+ transacciones en ~2 segundos (vs 16 minutos secuencialmente).',
     tags: ['FastAPI', 'Python', 'PostgreSQL', 'SQLAlchemy', 'Docker', 'Railway', 'Pydantic', 'Async/Await'],
-    image: 'https://raw.githubusercontent.com/JordyDev-Villanueva/payflow-api/refs/heads/main/docs/screenshots/swagger-ui.png',
+    image: 'https://raw.githubusercontent.com/JordyDev-Villanueva/payflow-api/main/api-architecture.png',
     demoUrl: 'https://payflow-api-production.up.railway.app/docs',
     githubUrl: 'https://github.com/JordyDev-Villanueva/payflow-api',
     highlights: [
