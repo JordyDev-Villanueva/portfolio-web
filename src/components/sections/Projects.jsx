@@ -46,10 +46,10 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className={`grid gap-8 max-w-7xl mx-auto ${
+        <div className={`grid gap-8 mx-auto ${
           activeCategory === 'Todos'
-            ? 'md:grid-cols-2'
-            : 'grid-cols-1 max-w-4xl'
+            ? 'md:grid-cols-2 max-w-7xl'
+            : 'grid-cols-1 justify-items-center max-w-7xl'
         }`}>
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -58,7 +58,9 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className={`group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${
+                activeCategory !== 'Todos' ? 'w-full md:max-w-2xl' : 'w-full'
+              }`}
             >
               {/* Featured Badge */}
               {project.featured && (
