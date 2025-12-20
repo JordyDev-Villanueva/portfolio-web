@@ -46,7 +46,11 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className={`grid gap-8 max-w-7xl mx-auto ${
+          activeCategory === 'Todos'
+            ? 'md:grid-cols-2'
+            : 'grid-cols-1 max-w-4xl'
+        }`}>
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
