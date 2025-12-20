@@ -46,13 +46,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className={`grid gap-8 ${
-          filteredProjects.length === 1
-            ? 'grid-cols-1 max-w-4xl mx-auto'
-            : filteredProjects.length === 2
-              ? 'md:grid-cols-2 max-w-6xl mx-auto'
-              : 'md:grid-cols-2 lg:grid-cols-3'
-        }`}>
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -60,9 +54,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${
-                project.featured && filteredProjects.length > 1 ? 'md:col-span-2 lg:col-span-2' : ''
-              }`}
+              className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               {/* Featured Badge */}
               {project.featured && (
