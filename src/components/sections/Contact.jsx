@@ -108,6 +108,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="flex flex-col"
           >
             <h3 className="text-2xl font-bold mb-6">Información de Contacto</h3>
 
@@ -133,18 +134,23 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="bg-gradient-to-br from-primary to-accent rounded-2xl p-8 text-white">
-              <h4 className="text-2xl font-bold mb-3">¿Listo para trabajar juntos?</h4>
-              <p className="mb-4 opacity-90">
-                Estoy buscando oportunidades en fintech, e-commerce o sistemas de gestión empresarial.
+            {/* Availability Card */}
+            <div className="mt-auto bg-gradient-to-br from-primary to-accent rounded-2xl p-8 text-white">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
+                <span className="text-sm font-medium opacity-90">Disponible para contratación</span>
+              </div>
+              <h4 className="text-2xl font-bold mb-3">Python Backend Developer Jr.</h4>
+              <p className="mb-5 opacity-90">
+                Disponible para proyectos remotos o presenciales. Listo para sumarme a un equipo y aportar desde el primer día.
               </p>
-              <a
-                href="#projects"
-                className="inline-block bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Ver Mis Proyectos
-              </a>
+              <div className="flex flex-wrap gap-2">
+                {['Python', 'FastAPI', 'Flask', 'Django', 'PostgreSQL'].map((tech) => (
+                  <span key={tech} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -153,8 +159,9 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="flex flex-col"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="flex flex-col flex-1 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Nombre
@@ -203,7 +210,7 @@ const Contact = () => {
                 />
               </div>
 
-              <div>
+              <div className="flex flex-col flex-1">
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Mensaje
                 </label>
@@ -211,10 +218,9 @@ const Contact = () => {
                   id="message"
                   name="message"
                   required
-                  rows="5"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:outline-none transition-colors resize-none"
+                  className="flex-1 w-full px-4 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:outline-none transition-colors resize-none"
                   placeholder="Cuéntame sobre tu proyecto..."
                 />
               </div>

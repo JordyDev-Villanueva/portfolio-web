@@ -3,10 +3,10 @@ import { FaGraduationCap, FaCertificate, FaCode, FaRocket } from 'react-icons/fa
 
 const About = () => {
   const stats = [
-    { icon: <FaGraduationCap />, value: '10º', label: 'Ciclo Ing. Sistemas - UTP' },
+    { icon: <FaGraduationCap />, value: 'UTP', label: 'Ing. Sistemas' },
     { icon: <FaCertificate />, value: 'MS', label: 'Microsoft Certified' },
-    { icon: <FaCode />, value: '3+', label: 'Proyectos Production-Ready' },
-    { icon: <FaRocket />, value: '2+', label: 'Años de Experiencia' },
+    { icon: <FaCode />, value: '2', label: 'Proyectos Portafolio' },
+    { icon: <FaRocket />, value: '2026', label: 'Bachiller' },
   ];
 
   return (
@@ -29,18 +29,10 @@ const About = () => {
                 <img
                   src="/Jordy-Perfil.jpg"
                   alt="Jordy Villanueva"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
 
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 border-2 border-primary">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-primary">300+</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Ventas/día</p>
-                  <p className="text-xs text-gray-500">KATITA-POS</p>
-                </div>
-              </div>
             </div>
           </motion.div>
 
@@ -55,15 +47,14 @@ const About = () => {
             </h2>
 
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-              Soy un <span className="font-semibold text-primary">Full Stack Developer</span> apasionado
+              Soy un <span className="font-semibold text-primary">Python Backend Developer</span> apasionado
               por resolver problemas reales con código. Me especializo en desarrollo backend con Python,
               pero disfruto trabajar en toda la stack cuando construyo algo significativo.
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-              Actualmente estudio <span className="font-semibold">Ingeniería de Sistemas</span> (10º ciclo)
-              en la Universidad Tecnológica del Perú, donde combino la teoría académica con proyectos prácticos
-              que impactan negocios reales.
+              Egresado de <span className="font-semibold">Ingeniería de Sistemas</span> de la Universidad
+              Tecnológica del Perú (UTP). Bachiller abril 2026.
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
@@ -81,10 +72,10 @@ const About = () => {
                   'Análisis de datos con Python (Pandas, NumPy, Matplotlib)',
                   'Frontend moderno con React + TypeScript',
                   'Visualización de datos y dashboards estadísticos',
-                  'Bases de datos relacionales (PostgreSQL) y NoSQL (MongoDB)',
                   'Limpieza, transformación y modelado de datos',
                   'Despliegue en la nube (Railway, Vercel, Supabase)',
-                  'Integración de APIs REST y sistemas de autenticación'
+                  'Integración de APIs REST y sistemas de autenticación',
+                  'Uso de herramientas IA como apoyo en desarrollo (Claude, GitHub Copilot)'
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <span className="text-primary text-xl mt-1">✓</span>

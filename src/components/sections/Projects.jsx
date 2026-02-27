@@ -58,7 +58,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${
+              className={`group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col ${
                 activeCategory !== 'Todos' ? 'w-full md:max-w-2xl' : 'w-full'
               }`}
             >
@@ -80,7 +80,7 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-3">
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
                     {project.category}
@@ -162,7 +162,7 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="mt-6 flex gap-3">
+                <div className="mt-auto pt-6 flex gap-3">
                   <a
                     href={project.demoUrl}
                     target="_blank"

@@ -4,9 +4,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <FaGithub />, href: 'https://github.com/JordyDev-Villanueva', label: 'GitHub' },
-    { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/jordy-frank-villanueva-martel-271430337/', label: 'LinkedIn' },
-    { icon: <FaEnvelope />, href: 'mailto:jordy.2023.villmar@gmail.com', label: 'Email' },
+    { icon: <FaGithub />, href: 'https://github.com/JordyDev-Villanueva', label: 'GitHub', handle: 'JordyDev-Villanueva' },
+    { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/jordy-frank-villanueva-martel-271430337/', label: 'LinkedIn', handle: 'Jordy Villanueva' },
+    { icon: <FaEnvelope />, href: 'mailto:jordy.2023.villmar@gmail.com', label: 'Email', handle: 'jordy.2023.villmar@gmail.com' },
   ];
 
   return (
@@ -19,7 +19,7 @@ const Footer = () => {
               Jordy<span className="text-primary">Dev</span>
             </h3>
             <p className="text-sm sm:text-base text-gray-400">
-              Full Stack Developer & Data Analyst especializado en Python y React. Construyendo soluciones que impactan.
+              Python Backend Developer Jr. especializado en Flask, FastAPI y Django. Disponible para trabajo remoto.
             </p>
           </div>
 
@@ -50,17 +50,20 @@ const Footer = () => {
           {/* Social Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Redes Sociales</h4>
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-2xl text-gray-400 hover:text-primary transition-colors hover:scale-110 transform"
+                  className="flex items-center gap-3 text-gray-400 hover:text-primary transition-colors group"
                   aria-label={social.label}
                 >
-                  {social.icon}
+                  <span className="text-xl group-hover:scale-110 transform transition-transform">
+                    {social.icon}
+                  </span>
+                  <span className="text-sm">{social.handle}</span>
                 </a>
               ))}
             </div>

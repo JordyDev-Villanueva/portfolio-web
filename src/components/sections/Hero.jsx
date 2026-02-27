@@ -4,7 +4,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center section-padding pt-24 relative overflow-hidden">
+    <section id="home" className="min-h-[85vh] flex items-center section-padding pt-24 relative overflow-hidden">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 animate-gradient"></div>
 
@@ -65,13 +65,13 @@ const Hero = () => {
             >
               <TypeAnimation
                 sequence={[
-                  'Full Stack Developer',
+                  'Python Backend Developer',
                   2000,
-                  'Data Analyst',
+                  'Flask, FastAPI & Django Dev',
                   2000,
-                  'Python Developer',
+                  'Microsoft Certified Developer',
                   2000,
-                  'React Developer',
+                  'Egresado Ing. Sistemas UTP',
                   2000,
                 ]}
                 wrapper="h3"
@@ -87,9 +87,9 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl"
             >
-              Construyo soluciones web completas y analizo datos para resolver problemas reales.
-              Especializado en Python (Flask, FastAPI, Pandas, NumPy) y React frontend.
-              Microsoft Certified Python Developer. Actualmente estudiando Ing. Sistemas (10º ciclo) - UTP.
+              Desarrollador Python especializado en backend. Construyo APIs REST con
+              FastAPI y Flask, bases de datos PostgreSQL y frontend con React.
+              Microsoft Certified — UTP 2026.
             </motion.p>
 
             <motion.div
@@ -124,8 +124,8 @@ const Hero = () => {
               className="grid grid-cols-3 gap-4 mt-12"
             >
               <div className="text-center">
-                <h4 className="text-3xl font-bold text-primary">10º</h4>
-                <p className="text-gray-600 dark:text-gray-400">Ciclo Ing. Sistemas</p>
+                <h4 className="text-3xl font-bold text-primary">2026</h4>
+                <p className="text-gray-600 dark:text-gray-400">Bachiller UTP</p>
               </div>
               <div className="text-center">
                 <h4 className="text-3xl font-bold text-primary">3+</h4>
@@ -196,7 +196,7 @@ const Hero = () => {
                     👨‍💻
                   </motion.div>
                   <p className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Full Stack Dev
+                    Python Backend Dev
                   </p>
                 </div>
               </div>

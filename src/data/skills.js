@@ -15,7 +15,6 @@ export const skills = [
   { name: 'Django', category: 'Backend', icon: '🎯', color: '#092E20' },
   { name: 'SQLAlchemy', category: 'Backend', icon: '🗄️', color: '#D71F00' },
   { name: 'Pydantic', category: 'Backend', icon: '✅', color: '#E92063' },
-  { name: 'Node.js', category: 'Backend', icon: '💚', color: '#339933' },
 
   // Data Analysis
   { name: 'Pandas', category: 'Data Analysis', icon: '🐼', color: '#150458' },
@@ -27,8 +26,6 @@ export const skills = [
 
   // Database
   { name: 'PostgreSQL', category: 'Database', icon: '🐘', color: '#4169E1' },
-  { name: 'MongoDB', category: 'Database', icon: '🍃', color: '#47A248' },
-  { name: 'Redis', category: 'Database', icon: '🔴', color: '#DC382D' },
   { name: 'SQLite', category: 'Database', icon: '💾', color: '#003B57' },
 
   // DevOps & Tools
@@ -39,6 +36,11 @@ export const skills = [
   { name: 'Linux', category: 'Tools', icon: '🐧', color: '#FCC624' },
   { name: 'VS Code', category: 'Tools', icon: '💻', color: '#007ACC' },
   { name: 'Postman', category: 'Tools', icon: '📮', color: '#FF6C37' },
+
+  // AI Tools
+  { name: 'Claude', category: 'AI Tools', icon: '🤖', color: '#CC785C' },
+  { name: 'GitHub Copilot', category: 'AI Tools', icon: '🐙', color: '#6E40C9' },
+  { name: 'ChatGPT', category: 'AI Tools', icon: '💬', color: '#10A37F' },
 ];
 
-export const skillCategories = ['All', 'Frontend', 'Backend', 'Data Analysis', 'Database', 'Tools'];
+export const skillCategories = ['All', 'Frontend', 'Backend', 'Data Analysis', 'Database', 'Tools', 'AI Tools'];
