@@ -1,3 +1,4 @@
+// type: 'be' = Backend tag, 'fe' = Frontend tag, 'tool' = DevOps/tool
 export const projects = [
   {
     id: 0,
@@ -7,7 +8,16 @@ export const projects = [
     featured: true,
     inProduction: true,
     description: 'SaaS B2B de agendamiento médico en producción con clientes pagando en Perú. Bot de WhatsApp que agenda citas automáticamente 24/7, recordatorios vía llamada automática y dashboard con métricas en tiempo real.',
-    tags: ['FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'WhatsApp API', 'Twilio', 'Cloudinary', 'Railway', 'Vercel', 'GitHub Actions'],
+    tags: [
+      { label: 'FastAPI',        type: 'be' },
+      { label: 'PostgreSQL',     type: 'be' },
+      { label: 'React',          type: 'fe' },
+      { label: 'TypeScript',     type: 'fe' },
+      { label: 'Tailwind CSS',   type: 'fe' },
+      { label: 'WhatsApp API',   type: 'tool' },
+      { label: 'Twilio',         type: 'tool' },
+      { label: 'Railway/Vercel', type: 'tool' },
+    ],
     image: '/scarlyfy-preview.png',
     demoUrl: 'https://scarlyfy.com',
     githubUrl: null,
@@ -16,7 +26,6 @@ export const projects = [
       'Bot WhatsApp agenda citas automáticamente 24/7',
       'Arquitectura multi-tenant con roles (Jefe/Profesional)',
       '+60% cobertura de tests con pytest + CI/CD completo',
-      'Integraciones: Twilio · Cloudinary · Flow · Resend · WhatsApp API'
     ]
   },
   {
@@ -31,7 +40,15 @@ export const projects = [
       admin: { user: 'admin', pass: 'admin123' },
       vendor: { user: 'vendedor', pass: 'vendedor123' }
     },
-    tags: ['Python', 'Flask', 'React', 'PostgreSQL', 'Tailwind CSS', 'Vite', 'JWT'],
+    tags: [
+      { label: 'Python / Flask', type: 'be' },
+      { label: 'PostgreSQL',     type: 'be' },
+      { label: 'JWT',            type: 'be' },
+      { label: 'React',          type: 'fe' },
+      { label: 'TypeScript',     type: 'fe' },
+      { label: 'Tailwind CSS',   type: 'fe' },
+      { label: 'Vite',           type: 'fe' },
+    ],
     image: 'https://raw.githubusercontent.com/JordyDev-Villanueva/katita-pos/main/docs/screenshots/01-login.png',
     demoUrl: 'https://katita-pos.vercel.app',
     githubUrl: 'https://github.com/JordyDev-Villanueva/katita-pos',
@@ -50,7 +67,15 @@ export const projects = [
     featured: true,
     inProduction: false,
     description: 'API REST para procesamiento asíncrono de pagos masivos. Arquitectura por capas que permite procesar 500+ transacciones en ~2 segundos (mejora del 800% vs implementación síncrona).',
-    tags: ['FastAPI', 'Python', 'PostgreSQL', 'SQLAlchemy', 'Docker', 'Railway', 'Async/Await'],
+    tags: [
+      { label: 'FastAPI',      type: 'be' },
+      { label: 'PostgreSQL',   type: 'be' },
+      { label: 'SQLAlchemy',   type: 'be' },
+      { label: 'Async/Await',  type: 'be' },
+      { label: 'Docker',       type: 'tool' },
+      { label: 'Railway',      type: 'tool' },
+      { label: 'Swagger',      type: 'tool' },
+    ],
     image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop',
     demoUrl: 'https://payflow-api-production.up.railway.app/docs',
     githubUrl: 'https://github.com/JordyDev-Villanueva/payflow-api',

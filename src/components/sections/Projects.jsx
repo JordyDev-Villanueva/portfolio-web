@@ -158,17 +158,21 @@ const ProjectCard = ({ project, index }) => {
             </div>
           )}
 
-          {/* Tags */}
+          {/* Tags — BE teal · FE indigo · tool gris */}
           <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-0.5 rounded text-xs text-gray-400"
-                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                {tag}
-              </span>
-            ))}
+            {project.tags.map((tag) => {
+              const t = typeof tag === 'string' ? { label: tag, type: 'tool' } : tag;
+              const styles = {
+                be:   { background: 'rgba(13,148,136,0.12)', border: '1px solid rgba(13,148,136,0.25)', color: '#2dd4bf' },
+                fe:   { background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: '#a5b4fc' },
+                tool: { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)', color: '#9ca3af' },
+              };
+              return (
+                <span key={t.label} className="px-2 py-0.5 rounded text-xs font-medium" style={styles[t.type]}>
+                  {t.label}
+                </span>
+              );
+            })}
           </div>
 
           {/* Action Buttons */}
