@@ -1,40 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --color-primary: #3b82f6;
-    --color-accent: #8b5cf6;
+    --color-primary: #0d9488;
+    --color-accent: #14b8a6;
+    --bg-dark: #0a0f1e;
+    --bg-card: rgba(13, 21, 42, 0.55);
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
+    @apply bg-[#0a0f1e] text-gray-100;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  ::selection {
+    background: rgba(13, 148, 136, 0.35);
+    color: #e2e8f0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0f1e;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0d9488;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #14b8a6;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply px-4 md:px-8 lg:px-16 xl:px-32 py-12 md:py-16;
+    @apply px-4 md:px-8 lg:px-16 xl:px-32 py-16 md:py-24;
   }
 
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
+
+  .glass-card {
+    background: rgba(13, 21, 42, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-card-hover {
+    background: rgba(13, 21, 42, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-hover:hover {
+    border-color: rgba(13, 148, 136, 0.4);
+    box-shadow: 0 0 30px rgba(13, 148, 136, 0.15);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .glow-teal-strong {
+    box-shadow: 0 0 40px rgba(13, 148, 136, 0.5);
+  }
+
+  .code-font {
+    font-family: 'Fira Code', monospace;
+  }
+
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-primary border border-primary/30 bg-primary/10 mb-4;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-all hover:scale-105;
+    box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 30px rgba(13, 148, 136, 0.5);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all hover:scale-105;
+  }
 }
 
 @layer utilities {
   @keyframes gradient {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
   }
 
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient 15s ease infinite;
   }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(13,148,136,0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #0d9488, #14b8a6, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Barra de progreso scroll */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #0d9488, #14b8a6, #34d399);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
 }

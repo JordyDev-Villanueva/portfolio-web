@@ -1,83 +1,164 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaDownload, FaArrowRight } from 'react-icons/fa';
+import { FaDownload, FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { TypeAnimation } from 'react-type-animation';
 
+// ── Terminal animada ──────────────────────────────────────────────────────────
+const CODE_LINES = [
+  { text: '# scarlyfy/routers/citas.py', color: '#6b7280' },
+  { text: '@router.post("/citas/agendar")', color: '#60a5fa' },
+  { text: 'async def agendar_cita(data: CitaIn):', color: '#fbbf24' },
+  { text: '    cita = await CitaRepo.crear(data)', color: '#e5e7eb' },
+  { text: '    await WhatsApp.confirmar(cita)', color: '#e5e7eb' },
+  { text: '    await Twilio.recordatorio(cita)', color: '#e5e7eb' },
+  { text: '    return {"ok": True, "agendada": "✓"}', color: '#34d399' },
+  { text: '', color: '' },
+  { text: '# ✓ 57 citas agendadas este mes', color: '#0d9488' },
+];
+
+function TerminalCard() {
+  const [visible, setVisible] = useState(0);
+
+  useEffect(() => {
+    if (visible >= CODE_LINES.length) return;
+    const t = setTimeout(() => setVisible((v) => v + 1), 380);
+    return () => clearTimeout(t);
+  }, [visible]);
+
+  return (
+    <div className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10"
+      style={{ boxShadow: '0 0 60px rgba(13, 148, 136, 0.15)' }}>
+      {/* Terminal header */}
+      <div className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-white/10">
+        <span className="w-3 h-3 rounded-full bg-red-500/80" />
+        <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+        <span className="w-3 h-3 rounded-full bg-green-500/80" />
+        <span className="ml-3 text-gray-400 text-xs font-mono">scarlyfy/routers/citas.py</span>
+        <span className="ml-auto flex items-center gap-1.5 text-xs text-green-400">
+          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+          production
+        </span>
+      </div>
+      {/* Code lines */}
+      <div className="bg-[#0d1117] p-5 font-mono text-sm space-y-1 min-h-[220px]">
+        {CODE_LINES.slice(0, visible).map((line, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{ color: line.color || 'transparent' }}
+            className="leading-relaxed"
+          >
+            {line.text || ' '}
+          </motion.div>
+        ))}
+        {visible < CODE_LINES.length && (
+          <span className="inline-block w-2 h-4 bg-primary animate-pulse align-middle" />
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Stats ─────────────────────────────────────────────────────────────────────
+const STATS = [
+  { value: 'S/. 1,340', label: 'MRR Scarlyfy' },
+  { value: '235+', label: 'Tests unitarios' },
+  { value: '3+', label: 'Proyectos' },
+  { value: 'MS', label: 'Certificado' },
+];
+
+// ── Hero ──────────────────────────────────────────────────────────────────────
 const Hero = () => {
   return (
-    <section id="home" className="min-h-[85vh] flex items-center section-padding pt-24 relative overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 animate-gradient"></div>
+    <section id="home" className="min-h-screen flex items-center section-padding pt-28 relative overflow-hidden">
+
+      {/* Background blobs */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(18)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-primary/20 rounded-full"
+            className="absolute rounded-full"
             style={{
+              width: Math.random() > 0.5 ? '4px' : '2px',
+              height: Math.random() > 0.5 ? '4px' : '2px',
+              background: i % 3 === 0 ? 'rgba(13,148,136,0.4)' : i % 3 === 1 ? 'rgba(20,184,166,0.3)' : 'rgba(52,211,153,0.2)',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
+            animate={{ y: [0, -30, 0], opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 3 + Math.random() * 3, repeat: Infinity, delay: Math.random() * 2 }}
           />
         ))}
       </div>
 
       <div className="container-custom w-full relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.h2
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+
+          {/* ── LEFT: Text ── */}
+          <div>
+            {/* Available badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 border"
+              style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                borderColor: 'rgba(16, 185, 129, 0.25)',
+                color: '#34d399',
+              }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              Disponible para trabajar — Remoto / Presencial
+            </motion.div>
+
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-primary font-semibold mb-4"
+              className="text-primary font-semibold text-lg mb-2"
             >
               Hola, soy
-            </motion.h2>
+            </motion.p>
 
             <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight"
             >
-              Jordy <span className="text-primary">Villanueva</span>
+              Jordy{' '}
+              <span className="text-gradient">Villanueva</span>
             </motion.h1>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-2xl md:text-3xl lg:text-4xl text-gray-600 dark:text-gray-400 mb-6 h-20 md:h-24"
+              className="text-xl md:text-2xl text-gray-300 mb-5 h-16"
             >
               <TypeAnimation
                 sequence={[
                   'Python Backend Developer',
                   2000,
-                  'Flask, FastAPI & Django Dev',
+                  'Fundador de Scarlyfy · SaaS en Producción',
+                  2500,
+                  'Full Stack Developer',
+                  2000,
+                  'FastAPI · React · PostgreSQL',
                   2000,
                   'Microsoft Certified Developer',
                   2000,
-                  'Egresado Ing. Sistemas UTP',
-                  2000,
                 ]}
-                wrapper="h3"
-                speed={50}
+                wrapper="span"
+                speed={55}
                 repeat={Infinity}
-                className="text-2xl md:text-3xl lg:text-4xl"
               />
             </motion.div>
 
@@ -85,34 +166,31 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl"
+              className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg"
             >
-              Desarrollador Python especializado en backend. Construyo APIs REST con
-              FastAPI y Flask, bases de datos PostgreSQL y frontend con React.
-              Microsoft Certified — UTP 2026.
+              Desarrollador Python especializado en backend con proyectos reales en producción.
+              Fundé <a href="https://scarlyfy.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors font-medium">Scarlyfy</a>, SaaS de agendamiento médico con clientes pagando en Perú.
+              Construyo APIs REST con FastAPI, PostgreSQL y frontend con React + TypeScript.
             </motion.p>
 
+            {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 mb-10"
             >
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-all hover:scale-105 shadow-lg hover:shadow-xl"
-              >
+              <a href="#projects" className="btn-primary">
                 Ver Proyectos
-                <FaArrowRight />
+                <FaArrowRight size={14} />
               </a>
-
               <a
                 href="/CV_Jordy_Frank_Villanueva_Martel.pdf"
                 download="CV_Jordy_Frank_Villanueva_Martel.pdf"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all hover:scale-105"
+                className="btn-outline"
               >
                 Descargar CV
-                <FaDownload />
+                <FaDownload size={14} />
               </a>
             </motion.div>
 
@@ -121,110 +199,84 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="grid grid-cols-3 gap-4 mt-12"
+              className="grid grid-cols-4 gap-4"
             >
-              <div className="text-center">
-                <h4 className="text-3xl font-bold text-primary">2026</h4>
-                <p className="text-gray-600 dark:text-gray-400">Bachiller UTP</p>
-              </div>
-              <div className="text-center">
-                <h4 className="text-3xl font-bold text-primary">3+</h4>
-                <p className="text-gray-600 dark:text-gray-400">Proyectos</p>
-              </div>
-              <div className="text-center">
-                <h4 className="text-3xl font-bold text-primary">MS</h4>
-                <p className="text-gray-600 dark:text-gray-400">Certificado</p>
-              </div>
+              {STATS.map((s, i) => (
+                <div key={i} className="text-center">
+                  <p className="text-xl md:text-2xl font-bold text-primary leading-tight">{s.value}</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-tight">{s.label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ── RIGHT: Terminal ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="hidden lg:block"
+          >
+            <TerminalCard />
+
+            {/* Badges flotantes */}
+            <motion.div
+              className="mt-4 flex flex-wrap gap-2 justify-end"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+            >
+              {['FastAPI', 'React', 'PostgreSQL', 'WhatsApp API', 'Docker'].map((t) => (
+                <span
+                  key={t}
+                  className="px-3 py-1 rounded-full text-xs font-medium"
+                  style={{
+                    background: 'rgba(13, 148, 136, 0.1)',
+                    border: '1px solid rgba(13, 148, 136, 0.2)',
+                    color: '#5eead4',
+                  }}
+                >
+                  {t}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* Social quick links */}
+            <motion.div
+              className="mt-6 flex items-center gap-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.4 }}
+            >
+              <a
+                href="https://github.com/JordyDev-Villanueva"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+              >
+                <FaGithub /> GitHub
+              </a>
+              <span className="text-gray-700">·</span>
+              <a
+                href="https://www.linkedin.com/in/jordy-frank-villanueva-martel-271430337/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors text-sm"
+              >
+                <FaLinkedin /> LinkedIn
+              </a>
+              <span className="text-gray-700">·</span>
+              <a
+                href="https://scarlyfy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-accent transition-colors text-sm font-medium"
+              >
+                scarlyfy.com ↗
+              </a>
             </motion.div>
           </motion.div>
 
-          {/* Image/Illustration with enhanced effects */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="hidden md:flex justify-center items-center"
-          >
-            <div className="relative w-full max-w-lg aspect-square">
-              {/* Animated glow effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full opacity-20 blur-3xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.2, 0.3, 0.2],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              ></motion.div>
-
-              {/* Rotating border effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background: 'linear-gradient(45deg, var(--color-primary), var(--color-accent), var(--color-primary))',
-                  backgroundSize: '200% 200%',
-                }}
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              >
-                <div className="absolute inset-1 rounded-full bg-gray-100 dark:bg-gray-800"></div>
-              </motion.div>
-
-              {/* Content */}
-              <div className="relative w-full h-full rounded-full flex items-center justify-center">
-                <div className="text-center">
-                  <motion.div
-                    className="text-8xl mb-4"
-                    animate={{
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    👨‍💻
-                  </motion.div>
-                  <p className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Python Backend Dev
-                  </p>
-                </div>
-              </div>
-
-              {/* Floating tech icons */}
-              {['🐍', '⚛️', '🗄️', '📊'].map((icon, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute text-4xl"
-                  style={{
-                    top: `${[20, 20, 80, 80][i]}%`,
-                    left: `${[10, 90, 10, 90][i]}%`,
-                  }}
-                  animate={{
-                    y: [0, -15, 0],
-                    rotate: [0, 10, -10, 0],
-                  }}
-                  transition={{
-                    duration: 3 + i * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {icon}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
